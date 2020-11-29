@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require 'pry'
 require './lib/nytimes'
+require './lib/nytimes_data_extract'
 
 class NytimesTest < Minitest::Test
   attr_reader :hash
@@ -12,8 +13,10 @@ class NytimesTest < Minitest::Test
 
   def test_it_can_get_copyright
     #Set your code to the local variable, "result"
+    result = DataExtract.copyright(@hash)
+    puts result
 
-    assert result, "Copyright (c) 2018 The New York Times Company. All Rights Reserved."
+    assert_equal result, "Copyright (c) 2018 The New York Times Company. All Rights Reserved."
   end
 
   def test_it_can_get_array_of_stories
