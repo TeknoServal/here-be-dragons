@@ -28,6 +28,7 @@ class NytimesTest < Minitest::Test
 
   def test_it_can_get_all_stories_with_subsection_of_politics
     #Set your code to the local variable, "result"
+    result = DataExtract.subsection(@hash, 'Politics')
 
 
     assert result.is_a? (Array)
